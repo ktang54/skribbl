@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!-- saved from url=(0145)https://s0.2mdn.net/ads/richmedia/studio/pv2/61903006/20210928072956418/index.html?e=69&leftOffset=0&topOffset=0&c=oGVelIrPH1&t=1&renderingType=2 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>British Airways</title>
+    <meta name="ad.size" content="width=728,height=90">
+
+    <!-- Studio Enabler Required -->
+    <script src="./Enabler_01_246.js" type="text/javascript"></script>
+    
+
+    <style type="text/css">
+        body{
+            position:absolute;
+            border:0 none;
+            outline:0;
+            padding:0;
+            margin:0;
+        }
+
+        #loadingContent{
+            position:absolute;
+            width:728px;
+            height:90px;
+            top:0px;
+            left:0px;
+            background: #FFFFFF;
+            z-index:10;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            border:1px solid #666666;
+        }
+
+        #loadingImage{
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform: translate(-50%,-50%);
+        }
+
+        #container{
+            display:none;
+            z-index:20;
+            overflow:hidden;
+            width:728px;
+            height:90px;
+            top:0px;
+            left:0px;
+
+            transform: rotate(-0.0000000001deg);
+            -webkit-transform: rotate(-0.0000000001deg);
+        }
+    </style>
+
+    <!-- Versioning Query String -->
+        
+
+    <script type="text/javascript">
+        
+        /**
+        * Initialize DoubleClick Enabler
+        */
+        if(Enabler.isInitialized())
+        {
+            enablerInitHandler();
+        }
+        else
+        {
+            Enabler.addEventListener(studio.events.StudioEvent.INIT, enablerInitHandler);
+        }
+
+        /**
+        * Fired when DoubleClick Enabler is ready
+        */
+        function enablerInitHandler()
+        {
+            console.log("ENABLER INITILIZED");
+
+            // Wait for page to load before loading in CSS and JS
+            if(Enabler.isPageLoaded())
+            {
+                pageLoadedHandler();
+            }
+            else
+            {
+                Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, pageLoadedHandler);
+            }
+        }
+
+        /**
+        * Fired when page has loaded
+        */
+        function pageLoadedHandler()
+        {
+            console.log("PAGE LOADED");
+
+            // Wait for page to load before loading external css and js
+            if(Enabler.isVisible())
+            {
+                adVisibilityHandler();
+            }
+            else
+            {
+                Enabler.addEventListener(studio.events.StudioEvent.VISIBLE, adVisibilityHandler);
+            }
+        }
+
+        /**
+        * Fired when enabler is visible. Ensures users can see the ad (https://support.google.com/richmedia/answer/2672554?hl=en-GB&ref_topic=2744444).
+        * Function then loads in banners CSS
+        */
+        function adVisibilityHandler()
+        {
+            console.log("ENABLER VISIBLE");
+
+            // Load in banner CSS
+            var extCSS = document.createElement("link");
+            extCSS.setAttribute("rel", "stylesheet");
+            extCSS.setAttribute("type", "text/css");
+            extCSS.setAttribute("href", Enabler.getUrl("styles/styles.css"));
+                extCSS.onload = function()
+                {
+                    cssLoadedHandler();
+                };
+
+            document.getElementsByTagName("head")[0].appendChild(extCSS);
+            /*document.getElementById("container").style.opacity=1;
+            document.getElementById("loadingImage").style.opacity=0;
+            document.getElementById("container").style.display = "none";*/
+        }
+
+        /**
+        * Fired when the banners external CSS has been loaded
+        */
+        function cssLoadedHandler()
+        {
+            console.log("CSS LOADED");
+
+            // start loading external JS
+            loadExtJavaScript();
+        }
+
+
+        // array of all the external js files we want to politely load
+        var arrExtJs = ["https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_2.0.1_min.js",
+                        "js/SplitText.min.js",
+                        "js/dcoConfig.js",
+                        "js/loadDynamicContent.js",
+                        "js/animateText.js",
+                        "js/main.js",
+                        "js/setDynamicContent.js"];
+        var loadJsIndex = 0;
+
+        /**
+        * Function loads in an external JS file
+        */
+        function loadExtJavaScript()
+        {
+            // Load in external Javascript file
+            var extJavaScript = document.createElement("script");
+            extJavaScript.setAttribute("type", "text/javascript");
+            extJavaScript.setAttribute("src", Enabler.getUrl(arrExtJs[loadJsIndex]));
+                extJavaScript.onload = function()
+                {
+                    jsLoadedHandler();
+                };
+            document.getElementsByTagName("head")[0].appendChild(extJavaScript);
+        }
+
+
+        /**
+        * Fired when an External JS file has been loaded
+        */
+        function jsLoadedHandler()
+        {
+            console.log("JS LOADED (" + arrExtJs[loadJsIndex] + ")");
+
+            loadJsIndex++;
+
+            if(loadJsIndex < arrExtJs.length)
+            {
+                loadExtJavaScript(); // load next JS file
+            }
+            else
+            {
+                setDynamicContent(); // set the dynamic content. Once done startAd() is called
+            }
+        }
+    </script>
+<link rel="stylesheet" type="text/css" href="./styles.css"><script type="text/javascript" src="./tweenmax_2.0.1_min.js"></script><script type="text/javascript" src="./SplitText.min.js"></script><script type="text/javascript" src="./dcoConfig.js"></script><script type="text/javascript" src="./loadDynamicContent.js"></script><script type="text/javascript" src="./animateText.js"></script><script type="text/javascript" src="./main.js"></script><script type="text/javascript" src="./setDynamicContent.js"></script><style type="text/css">#frame04_copy01,#frame04_copy02,#frame03_copy01,.copy_price {color:#2e5c99;} #frame01_copy01,#frame01_copy02{text-shadow: 0px 0px 10px rgba(0,0,0,.7);} #frame01_icon{top:0;width:100%;height:100%;left:0} #frame01_copy01{font-size: 9px; letter-spacing: 1.4px; top: 5px; left: -76px;} #frame01_copy02 { top: 25px; left: -455px; font-size: 21px; letter-spacing: 3.7px; text-align: right; } #frame01_copy02 div { left: 766px; text-align: left; } #frame01.animateOff{transition:opacity .5s 0s} .copy_pp { line-height: 8px; top: 31px; position: absolute; left: 103px; }</style></head>
+<body>
+    <div id="loadingContent" style="display: none;">
+        <div id="loadingImage">
+            <img src="./loading.gif" alt="ad loading">
+        </div>
+    </div>
+    <div id="container" style="display: block;">
+
+        <div id="keyline" class="abs full"></div>
+        <div id="background" class="abs full"></div>
+        <div id="exitBtn" class="abs full"></div>
+
+        <!-- frame01 -->
+        <div id="frame01" class="abs frame full on animateOff">
+            <div id="frame01a_img_container" class="abs full">
+                <img id="frame01a_img" src="./37207215_20211001055718557_img_shortbreaks_728x90_282x78_x2.jpg" class="abs full hidden" style="opacity: 1; transform: matrix3d(1, 0.000174533, 0, 0, -0.000174533, 1, 0.000174533, 0, 0, -0.000174533, 1, 0, 0, 0, 0, 1);">
+            </div>
+            <div id="frame01b_img_container" class="abs full">
+                <img id="frame01b_img" src="./37207215_20211001055706059_img_longescapes_728x90_282x78_x2.jpg" class="abs full hidden" style="opacity: 1; transform: matrix3d(1, 0.000174533, 0, 0, -0.000174533, 1, 0.000174533, 0, 0, -0.000174533, 1, 0, 0, 0, 0, 1);">
+            </div>
+            <div id="frame01_copy01" class="abs mainCopy hidden" style="opacity: 1;">BOOK AHEAD FOR</div>
+            <div id="frame01_copy02" class="abs mainCopy hidden" style="opacity: 1;">SHORT<br>BREAKS<div>LONG<br>ESCAPES</div></div>
+            <img id="frame01_frame" src="./37207215_20210329095427028_img_frame_728x90.png" class="abs full">
+        </div>
+
+        <!-- frame02 -->
+        <div id="frame02" class="abs frame full" style="display: none;">
+            <img id="frame02_img" src="./37207215_20200609014224686_noImage.png" class="abs full hidden" style="opacity: 0;">
+            <div id="frame02_copy01" class="abs mainCopy hidden" style="opacity: 0;"></div>
+            <div id="frame02_copy02" class="abs mainCopy hidden" style="opacity: 0;"></div>
+        </div>
+
+        <!-- frame03 -->
+        <div id="frame03" class="abs frame full on">
+            <img id="frame03_img" src="./37207215_20200609014224686_noImage.png" class="abs full hidden" style="opacity: 0.8911;">
+            <div id="frame03_copy01" class="abs mainCopy hidden" style="opacity: 0.8911;">BOOK NOW<div>CHANGE LATER</div></div>
+            <div id="frame03_copy02" class="abs mainCopy hidden" style="opacity: 0.8911;">WITH OUR FLEXIBLE BOOKING OPTIONS</div>
+        </div>
+        <img id="frame01_icon" src="./37207215_20210329095349191_ampersand_q4_728x90_x2.png" class="abs full hidden animateOff_F1" style="opacity: 1;">
+
+        <!-- frame04 -->
+        <div id="frame04" class="abs frame full">
+            <div id="price_lockup" class="abs full hidden price_lockup" style="opacity: 0;">
+                <div id="price_inner">
+                    <div id="copy_from" class="copy_from abs">FROM</div>
+                    <div id="copy_currency" class="copy_currency abs">€</div>
+                    <div id="copy_price" class="copy_price abs">44</div>
+                    <div id="copy_pp" class="copy_pp abs">ONE WAY</div>
+                </div>
+                <div id="copy_package" class="abs copy_package">FLIGHTS TO LONDON</div>
+                <div id="copy_divider" class="abs copy_divider"></div>
+                <div id="copy_ends" class="abs copy_ends"></div>
+            </div>
+
+            <div id="frame04_copy01" class="abs mainCopy hidden" style="opacity: 0;">GREAT FARES<br>TO LONDON</div>
+            <div id="frame04_copy02" class="abs mainCopy hidden" style="opacity: 0;">TAKE OFF TO THE<br>PEOPLE &amp; PLACES<br>YOU LOVE</div>
+        </div>
+
+        <div id="endframe_copy01" class="abs endCopy hidden" style="opacity: 0.91;"></div>
+        <div id="endframe_copy02" class="abs endCopy hidden" style="opacity: 0.91;"></div>
+
+        <!-- cta btn -->
+        <div id="cta" class="abs hidden ctaPosPriceOK" style="opacity: 0;">
+            <div id="cta_bg" class="abs full cta_bg_off"></div>
+            <div id="cta_copy" class="abs ctaCopy cta_copy_off">BOOK NOW</div>
+        </div>
+
+        <!-- furniture - logos etc -->
+        <img id="logo_ba_01" class="abs full hidden" src="./logo_BA_728x90_x2.png" alt="" style="opacity: 1; transform: matrix(0.99999, 1e-05, -1e-05, 0.99999, 0, 0);">
+        <img id="logo_ba_02" class="abs full hidden" src="./37207215_20200609014224686_noImage.png" alt="" style="opacity: 0;">
+        <img id="logo_partners" class="abs full hidden" src="./37207215_20201216045241253_logo_BA_partners_noATOL_728x90_x2.png" alt="" style="opacity: 0.67; transform: matrix3d(1, 1.16937e-05, 0, 0, -1.16937e-05, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+        <img id="logo_extra" class="abs full hidden" src="./37207215_20200609014224686_noImage.png" alt="" style="opacity: 0;">
+
+        <!-- terms -->
+        <div id="terms_frame01" class="abs termsCopy hidden" style="opacity: 0;"></div>
+        <div id="terms_frame02" class="abs termsCopy hidden" style="opacity: 0;"></div>
+        <div id="terms_frame03" class="abs termsCopy hidden" style="opacity: 0.67;">T&amp;Cs apply.</div>
+        <div id="terms_frame04" class="abs termsCopy hidden" style="opacity: 0;">T&amp;Cs apply.</div>
+
+        <img id="btnReplay" src="./btnReplay_x2.png" alt="" style="display: none;">
+    </div>
+
+
+<iframe style="display: none;" src="./saved_resource(4).html"></iframe></body></html>
